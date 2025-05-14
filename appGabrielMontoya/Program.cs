@@ -1,5 +1,4 @@
 using appGabrielMontoya.Data;
-using DevExpress.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
