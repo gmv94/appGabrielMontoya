@@ -18,7 +18,6 @@
             <th>Observaciones</th>
             <th>Nombre Comercio</th>
             <th>Tipo Documento</th>
-            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -30,11 +29,6 @@
                 <td>@item.Observaciones</td>
                 <td>@item.NombreComercio</td>
                 <td>@item.TipoDocumento</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.GastoEncabezadoId" class="btn btn-warning">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.GastoEncabezadoId" class="btn btn-info">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.GastoEncabezadoId" class="btn btn-danger">Eliminar</a>
-                </td>
             </tr>
         }
     </tbody>

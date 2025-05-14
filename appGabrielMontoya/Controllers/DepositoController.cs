@@ -21,9 +21,11 @@ namespace appGabrielMontoya.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            var usuarioId = ObtenerUsuarioActual();
             var depositos = await _appDBContext.Depositos
                 .Include(d => d.FondoMonetario)
                 .Include(d => d.Usuario)
+                .Where(d => d.UsuarioId == usuarioId)
                 .ToListAsync();
 
             return View(depositos);

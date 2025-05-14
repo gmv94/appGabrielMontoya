@@ -17,7 +17,6 @@
             <th>Mes</th>
             <th>Año</th>
             <th>Monto</th>
-            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -28,11 +27,6 @@
                 <td>@item.Mes</td>
                 <td>@item.Anio</td>
                 <td>@item.Monto.ToString("C")</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.PresupuestoId" class="btn btn-info btn-sm">Ver</a>
-                    <a asp-action="Edit" asp-route-id="@item.PresupuestoId" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@item.PresupuestoId" class="btn btn-danger btn-sm">Eliminar</a>
-                </td>
             </tr>
         }
     </tbody>

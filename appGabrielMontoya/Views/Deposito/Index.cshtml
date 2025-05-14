@@ -16,7 +16,6 @@
             <th>Fecha</th>
             <th>Fondo Monetario</th>
             <th>Monto</th>
-            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -26,11 +25,6 @@
                 <td>@item.Fecha.ToShortDateString()</td>
                 <td>@item.FondoMonetario.Nombre</td>
                 <td>@item.Monto</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.DepositoId" class="btn btn-warning">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.DepositoId" class="btn btn-info">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.DepositoId" class="btn btn-danger">Eliminar</a>
-                </td>
             </tr>
         }
     </tbody>
