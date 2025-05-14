@@ -1,0 +1,20 @@
+﻿@model appGabrielMontoya.Models.TipoGasto
+
+@{
+    ViewData["Title"] = "Detalles del Tipo de Gasto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.Descripcion</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.TipoGastoId" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

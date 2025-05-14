@@ -1,0 +1,41 @@
+﻿@model IEnumerable<appGabrielMontoya.Models.GastoEncabezado>
+
+@{
+    ViewData["Title"] = "Registros de Gastos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nuevo Gasto</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Fondo Monetario</th>
+            <th>Observaciones</th>
+            <th>Nombre Comercio</th>
+            <th>Tipo Documento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Fecha.ToShortDateString()</td>
+                <td>@item.FondoMonetario.Nombre</td>
+                <td>@item.Observaciones</td>
+                <td>@item.NombreComercio</td>
+                <td>@item.TipoDocumento</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GastoEncabezadoId" class="btn btn-warning">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.GastoEncabezadoId" class="btn btn-info">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GastoEncabezadoId" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

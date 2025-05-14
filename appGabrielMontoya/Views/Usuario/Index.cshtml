@@ -1,0 +1,39 @@
+﻿@model IEnumerable<appGabrielMontoya.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Usuario</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Login</th>
+            <th>Correo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellido</td>
+                <td>@usuario.Login</td>
+                <td>@usuario.Correo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@usuario.UsuarioId" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Details" asp-route-id="@usuario.UsuarioId" class="btn btn-info btn-sm">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@usuario.UsuarioId" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

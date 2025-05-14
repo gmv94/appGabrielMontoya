@@ -1,0 +1,58 @@
+﻿@model List<appGabrielMontoya.Controllers.ConsultaMovimientosController.Movimiento>
+
+@{
+    ViewData["Title"] = "Consulta de Movimientos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" class="form-inline mb-3">
+    <div class="form-group mx-sm-3">
+        <label for="fechaInicio">Desde:</label>
+        <input type="date" name="fechaInicio" class="form-control ml-2" required />
+    </div>
+    <div class="form-group mx-sm-3">
+        <label for="fechaFin">Hasta:</label>
+        <input type="date" name="fechaFin" class="form-control ml-2" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <p><strong>Rango:</strong> @ViewBag.FechaInicio - @ViewBag.FechaFin</p>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Fondo Monetario</th>
+                <th>Comercio</th>
+                <th>Tipo Documento</th>
+                <th>Tipo de Gasto</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.TipoMovimiento</td>
+                    <td>@m.Fecha.ToString("yyyy-MM-dd")</td>
+                    <td>@m.Usuario</td>
+                    <td>@m.Fondo</td>
+                    <td>@m.Comercio</td>
+                    <td>@m.TipoDocumento</td>
+                    <td>@m.TipoGasto</td>
+                    <td class="text-right">@m.Monto.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay movimientos registrados en el rango seleccionado.</p>
+}
+
